@@ -1,10 +1,10 @@
 <script>
-import getHoldings from "../api/get-holdings";
+import getTokens from "../api/get-tokens.js";
 import {store} from "../store";
 </script>
 
 <main>
-    {#await getHoldings($store.address) then holdings}
+    {#await getTokens($store.address) then holdings}
         <table>
             <tr>
                 <th>Qty</th>

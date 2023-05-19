@@ -2,7 +2,7 @@ import {gql} from "graphql-request";
 import gqlClient from "./gql-client";
 
 const query = gql`
-    query GetHoldings($address: String!) {
+    query GetTokens($address: String!) {
         holdings(where: {
             holder_address: {_eq: $address},
             amount: {_gt: 0}
@@ -56,6 +56,6 @@ interface IHoldingsResponse {
     holdings: IHoldings
 }
 
-export default async function getHoldings(address: string): Promise<IHoldingsResponse> {
+export default async function getTokens(address: string): Promise<IHoldingsResponse> {
     return gqlClient.request(query, {address});
 }
