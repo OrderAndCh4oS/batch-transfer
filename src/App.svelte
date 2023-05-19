@@ -5,10 +5,9 @@
 
 <main>
     {#if $store}
-        <button on:click={unsync}>Unsync</button>
+        <button on:click={unsync}>Unsync</button> {$store.address}
         <TokenList/>
     {:else}
         <button on:click={sync}>Sync</button>
     {/if}
-    {$store?.address ?? 'n/a'}
 </main>

@@ -1,5 +1,5 @@
 <script>
-import getTokens from "../api/get-tokens.js";
+import getTokens from "../api/get-tokens";
 import {store} from "../store";
 </script>
 
