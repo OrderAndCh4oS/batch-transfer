@@ -6,5 +6,8 @@
     $: term.set(val);
 </script>
 
-<label for="searchInput">Search</label>
-<input bind:value={val} type="text" id="searchInput">
+<div class="flex gap-2">
+    <label for="searchInput">Search</label>
+    <input bind:value={val} type="text" id="searchInput" class="w-full border rounded px-2 py-1">
+</div>
+

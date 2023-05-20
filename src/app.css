@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --black: #141418;
+    --white: #faf7f6;
+    --foreground-rgb: 20, 20, 24;
+    --background-start-rgb: 227, 219, 217;
+    --background-end-rgb: 224, 215, 213;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --black: #e0d7d5;
+        --white: #232121;
+        --foreground-rgb: 224, 215, 213;
+        --background-start-rgb: 35, 33, 33;
+        --background-end-rgb: 20, 20, 24;
+    }
+}
+
 @font-face {
     font-family: "BallingerMono";
     src: url("/fonts/WOFF2/BallingerMono-Bold.woff2") format("woff2"),
@@ -27,31 +45,17 @@
 }
 
 @layer base {
+    html, body {
+        min-height: 100%;
+    }
+
     html {
         font-family: 'BallingerMono', monospace;
-        background: linear-gradient(33deg, #1b181c, #2c1b2b);;
-        color: #d2d7cc
     }
 
-    input, textarea, select {
-        background-color: #d2d7cc;
-        color: #1b181c;
+    ::selection {
+        color: var(--white);
+        background: #FF4100;
     }
 
-    input.border, textarea.border, select.border, .link-button.border {
-        border: 2px solid #d2d7cc;
-    }
-
-    input:focus, textarea:focus, select:focus, button:focus, .link-button:focus {
-        outline: 1px #e70e4f solid;
-    }
-
-    input.border:focus, textarea.border:focus, button.border:focus, .link-button:focus {
-        outline: 0;
-        border: 2px solid #e70e4f;
-    }
-}
-
-html, body {
-    min-height: 100%;
 }

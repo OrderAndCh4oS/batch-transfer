@@ -4,9 +4,11 @@
     import getOwnedTokens from "./api/get-owned-tokens";
 </script>
 
-<main>
+<main class="p-8">
     {#if $user}
-        <button on:click={unsync}>Unsync</button> {$user.address}
+        <div class="mb-8">
+            <button on:click={unsync}>Unsync</button> {$user.address}
+        </div>
         {#await getOwnedTokens($user.address)}
             <p>Loading…</p>
             {:then tokens}

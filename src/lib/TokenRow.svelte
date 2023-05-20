@@ -4,11 +4,11 @@
 </script>
 
 <tr>
-    <td>{index + 1}</td>
-    <td>{row.amount}</td>
-    <td>{row.token.name}</td>
-    <td>{row.token_id}</td>
-    <td>{row.token.mime_type}</td>
-    <td>{row.token.platform}</td>
-    <td>{row.fa2_address}</td>
+    <td class="px-2 py-1 border-b">{index + 1}</td>
+    <td class="px-2 py-1 border-b">{row.amount}</td>
+    <td class="px-2 py-1 border-b">{row.token.name}</td>
+    <td class="px-2 py-1 border-b">{row.token_id}</td>
+    <td class="px-2 py-1 border-b">{row.token.mime_type}</td>
+    <td class="px-2 py-1 border-b">{row.token.platform}</td>
+    <td class="px-2 py-1 border-b">{row.fa2_address}</td>
 </tr>
