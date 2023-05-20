@@ -4,6 +4,9 @@ dependencies:
   '@airgap/beacon-sdk':
     specifier: ^4.0.2
     version: 4.0.2
+  '@sveltejs/svelte-virtual-list':
+    specifier: ^3.0.1
+    version: 3.0.1
   '@taquito/beacon-wallet':
     specifier: ^16.1.2
     version: 16.1.2
@@ -13,6 +16,9 @@ dependencies:
   graphql-request:
     specifier: ^6.0.0
     version: 6.0.0(graphql@16.6.0)
+  svelte-tiny-virtual-list:
+    specifier: ^2.0.5
+    version: 2.0.5
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte':
@@ -656,6 +662,10 @@ packages:
       '@stablelib/binary': 1.0.1
       '@stablelib/salsa20': 1.0.2
       '@stablelib/wipe': 1.0.1
+    dev: false
+
+  /@sveltejs/svelte-virtual-list@3.0.1:
+    resolution: {integrity: sha512-aF9TptS7NKKS7/TqpsxQBSDJ9Q0XBYzBehCeIC5DzdMEgrJZpIYao9LRLnyyo6SVodpapm2B7FE/Lj+FSA5/SQ==}
     dev: false
 
   /@sveltejs/vite-plugin-svelte@2.2.0(svelte@3.59.1)(vite@4.3.8):
@@ -2678,6 +2688,10 @@ packages:
       svelte: 3.59.1
       typescript: 4.9.5
     dev: true
+
+  /svelte-tiny-virtual-list@2.0.5:
+    resolution: {integrity: sha512-xg9ckb8UeeIme4/5qlwCrl2QNmUZ8SCQYZn3Ji83cUsoASqRNy3KWjpmNmzYvPDqCHSZjruBBsoB7t5hwuzw5g==}
+    dev: false
 
   /svelte@3.59.1:
     resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}

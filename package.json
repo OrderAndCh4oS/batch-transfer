@@ -24,8 +24,10 @@
   },
   "dependencies": {
     "@airgap/beacon-sdk": "^4.0.2",
+    "@sveltejs/svelte-virtual-list": "^3.0.1",
     "@taquito/beacon-wallet": "^16.1.2",
     "@taquito/taquito": "^16.1.2",
-    "graphql-request": "^6.0.0"
+    "graphql-request": "^6.0.0",
+    "svelte-tiny-virtual-list": "^2.0.5"
   }
 }

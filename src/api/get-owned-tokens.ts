@@ -2,7 +2,7 @@ import {gql} from "graphql-request";
 import gqlClient from "./gql-client";
 
 const query = gql`
-    query GetTokens($address: String!) {
+    query GetOwnedTokens($address: String!) {
         holdings(where: {
             holder_address: {_eq: $address},
             amount: {_gt: 0}
@@ -31,7 +31,7 @@ const query = gql`
     }
 `
 
-export interface IHoldings {
+export interface IOwnedToken {
     token: {
         name: string
         artifact_uri: string
@@ -52,10 +52,10 @@ export interface IHoldings {
     last_received_at: string
 }
 
-interface IHoldingsResponse {
-    holdings: IHoldings
+interface IOwnedTokensResponse {
+    holdings: IOwnedToken
 }
 
-export default async function getTokens(address: string): Promise<IHoldingsResponse> {
+export default async function getOwnedTokens(address: string): Promise<IOwnedTokensResponse> {
     return gqlClient.request(query, {address});
 }

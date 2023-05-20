@@ -1,27 +1,25 @@
 <script>
-import getTokens from "../api/get-tokens";
-import {store} from "../store";
+    import TokenRow from "./TokenRow.svelte";
+    import {filtered, items} from "./filtered-items";
+    import Search from "./Search.svelte";
+    export let tokens;
+    items.set(tokens.holdings);
 </script>
 
-<main>
-    {#await getTokens($store.address) then holdings}
-        <table>
-            <tr>
-                <th>Qty</th>
-                <th>Title</th>
-                <th>Token ID</th>
-                <th>Mime Type</th>
-                <th>Platform</th>
-            </tr>
-            {#each holdings.holdings as row}
-                <tr>
-                    <td>{row.amount}</td>
-                    <td>{row.token.name}</td>
-                    <td>{row.token_id}</td>
-                    <td>{row.token.mime_type}</td>
-                    <td>{row.token.platform}</td>
-                </tr>
-            {/each}
-        </table>
-    {/await}
-</main>
+<div>
+    <Search/>
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>Qty</th>
+            <th>Title</th>
+            <th>Token ID</th>
+            <th>Mime Type</th>
+            <th>Platform</th>
+            <th>Contract</th>
+        </tr>
+        {#each $filtered as row, i}
+            <TokenRow row={row} index={i}/>
+        {/each}
+    </table>
+</div>
