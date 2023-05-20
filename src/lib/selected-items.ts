@@ -17,12 +17,15 @@ export const handleSelect = (token: IOwnedToken) => {
 
 export const handleSelectQty = (token: IOwnedToken, qty: number) => {
     handleDeselect(token)
-    const arr: ISelectedToken[] = new Array(qty).fill({...token, qty: 1, address: ''})
+    const arr = Array.from({length: qty}, () => ({...token, qty: 1, address: ''} as ISelectedToken))
     selected.update(selected => [...selected, ...arr])
 }
 export const handleDeselect = (token: IOwnedToken) => {
     selected.update(selected => selected.filter(s => !(matchToken(s, token))))
 }
+export const deselectTokenByIndex = (i: number) => () => {
+    selected.update(selected => (selected.splice(i, 1), [...selected]))
+};
 export const handleSelectRange = (filteredTokens: IOwnedToken[], from: IOwnedToken, to: IOwnedToken) => {
     let fromIndex = filteredTokens.findIndex(ft => matchToken(ft, from))
     let toIndex = filteredTokens.findIndex(ft => matchToken(ft, to))

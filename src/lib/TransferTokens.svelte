@@ -1,5 +1,5 @@
 <script>
-    import {selected} from "./selected-items";
+    import {deselectTokenByIndex, selected} from "./selected-items";
 
     const handleSend = () => {
         console.log($selected);
@@ -17,6 +17,7 @@
                     <th class="pb-2 px-2">Title</th>
                     <th class="pb-2 px-2">Qty</th>
                     <th class="pb-2 px-2">Address</th>
+                    <th class="pb-2 px-2">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,6 +38,9 @@
                                     bind:value={row.address}
                                     class="bg-swiss-coffee-50 border border-woodsmoke-300 text-woodsmoke rounded-lg focus:ring-swiss-coffee-500 focus:border-swiss-coffee-500 block w-full px-2 py-1 dark:bg-woodsmoke-700 dark:border-woodsmoke-600 dark:placeholder-woodsmoke-400 dark:text-swiss-coffee dark:focus:ring-swiss-coffee-500 dark:focus:border-swiss-coffee-500 focus:outline-none"
                             />
+                        </td>
+                        <td>
+                            <button on:click={deselectTokenByIndex(i)} class="px-2 py-1 border rounded">Remove</button>
                         </td>
                     </tr>
                 {/each}
