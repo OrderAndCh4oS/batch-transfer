@@ -6,7 +6,7 @@
     $: term.set(val);
 </script>
 
-<div class="flex gap-2 items-center">
+<div class="flex gap-2 items-center w-1/2">
     <label for="searchInput">Search</label>
     <input
         bind:value={val} type="text" id="searchInput"
