@@ -1,13 +1,13 @@
 <script lang="ts">
-    import {store, sync, unsync} from "./store";
+    import {user, sync, unsync} from "./user";
     import TokenList from "./lib/TokenList.svelte";
     import getOwnedTokens from "./api/get-owned-tokens";
 </script>
 
 <main>
-    {#if $store}
-        <button on:click={unsync}>Unsync</button> {$store.address}
-        {#await getOwnedTokens($store.address)}
+    {#if $user}
+        <button on:click={unsync}>Unsync</button> {$user.address}
+        {#await getOwnedTokens($user.address)}
             <p>Loading…</p>
             {:then tokens}
             <TokenList tokens={tokens}/>

@@ -16,19 +16,23 @@ export const network = {
 };
 tezosToolkit.setWalletProvider(wallet);
 
-interface IStore {
+interface IUser {
     address: string
     wallet: BeaconWallet
     account: AccountInfo
 }
 
-export const store = writable<IStore | null>(null);
+const storedTheme = localStorage.getItem("user");
+export const user = writable<IUser | null>(storedTheme ? JSON.parse(storedTheme) : null);
+user.subscribe(value => {
+    localStorage.setItem("user", JSON.stringify(value));
+});
 
 export const sync = async () => {
     await wallet.requestPermissions({network});
     const account = await wallet.client.getActiveAccount();
     const address = await wallet.getPKH();
-    store.set({
+    user.set({
         address,
         account,
         wallet,
@@ -37,5 +41,5 @@ export const sync = async () => {
 
 export const unsync = async () => {
     await wallet.client.clearActiveAccount();
-    store.set(null);
+    user.set(null);
 };
