@@ -22,12 +22,6 @@ interface IUser {
     account: AccountInfo
 }
 
-// const storedTheme = localStorage.getItem("user");
-// export const user = writable<IUser | null>(storedTheme ? JSON.parse(storedTheme) : null);
-// user.subscribe(value => {
-//     localStorage.setItem("user", JSON.stringify(value));
-// });
-
 export const user = writable<IUser | null>(null);
 
 export const sync = async () => {

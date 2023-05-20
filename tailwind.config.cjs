@@ -5,7 +5,7 @@ export default {
         extend: {
             colors: {
                 'swiss-coffee': {
-                    DEFAULT: '#E0D7D5',
+                    DEFAULT: '#CFC1BE',
                     50: '#E3DBD9',
                     100: '#E0D7D5',
                     200: '#D7CCC9',
@@ -19,7 +19,7 @@ export default {
                     950: '#967871'
                 },
                 'woodsmoke': {
-                    DEFAULT: '#141418',
+                    DEFAULT: '#1D1D23',
                     50: '#636377',
                     100: '#5E5E71',
                     200: '#555566',

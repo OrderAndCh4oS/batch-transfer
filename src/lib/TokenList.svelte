@@ -11,7 +11,7 @@
         <Search/>
     </div>
     <table class="w-full">
-        <tr class="border-b-2 text-left">
+        <tr class="border-b-2 border-swiss-coffee-900 text-left">
             <th class="pb-2 px-2">No.</th>
             <th class="pb-2 px-2">Qty</th>
             <th class="pb-2 px-2">Title</th>

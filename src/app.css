@@ -4,19 +4,19 @@
 
 :root {
     --black: #141418;
-    --white: #faf7f6;
-    --foreground-rgb: 20, 20, 24;
+    --white: #E0D7D5;
+    --foreground-rgb: 29, 29, 35;
     --background-start-rgb: 227, 219, 217;
-    --background-end-rgb: 224, 215, 213;
+    --background-end-rgb: 207, 193, 190;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --black: #e0d7d5;
-        --white: #232121;
-        --foreground-rgb: 224, 215, 213;
+        --black: #E0D7D5;
+        --white: #141418;
+        --foreground-rgb: 207, 193, 190;
         --background-start-rgb: 35, 33, 33;
-        --background-end-rgb: 20, 20, 24;
+        --background-end-rgb: 29, 29, 35;
     }
 }
 
@@ -51,6 +51,15 @@
 
     html {
         font-family: 'BallingerMono', monospace;
+    }
+
+    body {
+        color: rgb(var(--foreground-rgb));
+        background: linear-gradient(
+                to bottom,
+                transparent,
+                rgb(var(--background-end-rgb))
+        ) rgb(var(--background-start-rgb));
     }
 
     ::selection {
