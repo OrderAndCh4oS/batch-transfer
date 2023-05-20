@@ -1,11 +1,50 @@
 <script>
-import {selected} from "./selected-items";
+    import {selected} from "./selected-items";
+
+    const handleSend = () => {
+        console.log($selected);
+    };
 </script>
 
 <div>
-    {#if !$selected.length}
-        <p>No tokens selected, select some tokens to transfer</p>
+    {#if $selected.length}
+        <div>
+            <table class="w-full mb-4">
+                <thead>
+                <tr class="border-b-2 border-swiss-coffee-900 text-left">
+                    <th class="pb-2 px-2">No.</th>
+                    <th class="pb-2 px-2">Owned</th>
+                    <th class="pb-2 px-2">Title</th>
+                    <th class="pb-2 px-2">Qty</th>
+                    <th class="pb-2 px-2">Address</th>
+                </tr>
+                </thead>
+                <tbody>
+                {#each $selected as row, i}
+                    <tr class="border-b-2 border-swiss-coffee-900 text-left">
+                        <td class="pb-2 px-2">{i + 1}</td>
+                        <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.amount}</td>
+                        <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.name}</td>
+                        <td class="px-2 py-1 border-b border-swiss-coffee-900">
+                            <input
+                                    bind:value={row.qty}
+                                    type="number"
+                                    class="bg-swiss-coffee-50 border border-woodsmoke-300 text-woodsmoke rounded-lg focus:ring-swiss-coffee-500 focus:border-swiss-coffee-500 block w-full px-2 py-1 dark:bg-woodsmoke-700 dark:border-woodsmoke-600 dark:placeholder-woodsmoke-400 dark:text-swiss-coffee dark:focus:ring-swiss-coffee-500 dark:focus:border-swiss-coffee-500 focus:outline-none"
+                            />
+                        </td>
+                        <td class="px-2 py-1 border-b border-swiss-coffee-900">
+                            <input
+                                    bind:value={row.address}
+                                    class="bg-swiss-coffee-50 border border-woodsmoke-300 text-woodsmoke rounded-lg focus:ring-swiss-coffee-500 focus:border-swiss-coffee-500 block w-full px-2 py-1 dark:bg-woodsmoke-700 dark:border-woodsmoke-600 dark:placeholder-woodsmoke-400 dark:text-swiss-coffee dark:focus:ring-swiss-coffee-500 dark:focus:border-swiss-coffee-500 focus:outline-none"
+                            />
+                        </td>
+                    </tr>
+                {/each}
+                </tbody>
+            </table>
+            <button on:click={handleSend} class="px-2 py-1 border rounded">Send</button>
+        </div>
     {:else}
-        <p>TODO</p>
+        <p>No tokens selected, select some tokens to transfer</p>
     {/if}
 </div>

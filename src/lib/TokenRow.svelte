@@ -1,5 +1,12 @@
 <script>
-    import {handleDeselect, handleSelect, handleSelectRange, lastClicked, selected} from "./selected-items";
+    import {
+        handleDeselect,
+        handleSelect,
+        handleSelectQty,
+        handleSelectRange,
+        lastClicked,
+        selected
+    } from "./selected-items";
     import {filtered} from "./filtered-items";
 
     export let row;
@@ -16,6 +23,11 @@
         }
         lastClicked.set(row);
     }
+
+    let qty = 1;
+    const handleAddMany = () => {
+        handleSelectQty(row, Math.min(qty, row.amount));
+    };
 </script>
 
 <tr on:mousedown={handleClick} class={isSelected ? 'bg-swiss-coffee-300 dark:bg-woodsmoke-600' : ''}>
@@ -26,4 +38,17 @@
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.fa2_address}</td>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.mime_type}</td>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.platform}</td>
+    <td class="px-2 py-1 border-b border-swiss-coffee-900">
+        {#if row.amount > 1}
+            <div class="flex gap-1 w-[150px]">
+                <input
+                        on:mousedown={(e) => e.stopPropagation()}
+                        bind:value={qty}
+                        type="number"
+                        class="bg-swiss-coffee-50 border border-woodsmoke-300 text-woodsmoke rounded-lg focus:ring-swiss-coffee-500 focus:border-swiss-coffee-500 block w-full px-2 py-1 dark:bg-woodsmoke-700 dark:border-woodsmoke-600 dark:placeholder-woodsmoke-400 dark:text-swiss-coffee dark:focus:ring-swiss-coffee-500 dark:focus:border-swiss-coffee-500 focus:outline-none"
+                />
+                <button on:click={handleAddMany} on:mousedown={(e) => e.stopPropagation()} class="px-2 py-1 border rounded">Add</button>
+            </div>
+        {/if}
+    </td>
 </tr>
