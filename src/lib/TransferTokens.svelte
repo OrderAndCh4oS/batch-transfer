@@ -40,13 +40,13 @@
                             />
                         </td>
                         <td>
-                            <button on:click={deselectTokenByIndex(i)} class="px-2 py-1 border rounded">Remove</button>
+                            <button on:click={deselectTokenByIndex(i)} class="px-2 py-1 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Remove</button>
                         </td>
                     </tr>
                 {/each}
                 </tbody>
             </table>
-            <button on:click={handleSend} class="px-2 py-1 border rounded">Send</button>
+            <button on:click={handleSend} class="px-2 py-1 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Send</button>
         </div>
     {:else}
         <p>No tokens selected, select some tokens to transfer</p>

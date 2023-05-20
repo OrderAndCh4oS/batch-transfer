@@ -47,7 +47,7 @@
                         type="number"
                         class="bg-swiss-coffee-50 border border-woodsmoke-300 text-woodsmoke rounded-lg focus:ring-swiss-coffee-500 focus:border-swiss-coffee-500 block w-full px-2 py-1 dark:bg-woodsmoke-700 dark:border-woodsmoke-600 dark:placeholder-woodsmoke-400 dark:text-swiss-coffee dark:focus:ring-swiss-coffee-500 dark:focus:border-swiss-coffee-500 focus:outline-none"
                 />
-                <button on:click={handleAddMany} on:mousedown={(e) => e.stopPropagation()} class="px-2 py-1 border rounded">Add</button>
+                <button on:click={handleAddMany} on:mousedown={(e) => e.stopPropagation()} class="px-2 py-1 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Add</button>
             </div>
         {/if}
     </td>
