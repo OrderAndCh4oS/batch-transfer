@@ -30,7 +30,7 @@
     };
 </script>
 
-<tr on:mousedown={handleClick} class={isSelected ? 'bg-swiss-coffee-300 dark:bg-woodsmoke-600' : ''}>
+<tr on:mousedown={handleClick} class={`hover:bg-swiss-coffee-500 hover:dark:bg-woodsmoke-400 active:bg-swiss-coffee-300 active:dark:bg-woodsmoke-600 ${isSelected ? 'bg-swiss-coffee-300 dark:bg-woodsmoke-600' : ''}`}>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{index + 1}</td>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.amount}</td>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.name}</td>
