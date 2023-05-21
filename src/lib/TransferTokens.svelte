@@ -4,15 +4,26 @@
     import {user} from "../user";
 
     const handleSend = async () => {
-        console.log($selected);
         await batchTransfer($user, $selected)
         selected.set([])
     };
+    let address = ''
+    const handleSetAddress = () => {
+        selected.update(selected => selected.map(s => ({...s, address})))
+    }
 </script>
 
 <div>
     {#if $selected.length}
         <div>
+            <div class="flex gap-2 items-center w-1/2 mb-4">
+                <input
+                    bind:value={address} type="text" id="addressInput"
+                    placeholder="Enter Address"
+                    class="bg-swiss-coffee-50 border border-woodsmoke-300 text-woodsmoke rounded-lg focus:ring-swiss-coffee-500 focus:border-swiss-coffee-500 block w-full p-2.5 dark:bg-woodsmoke-700 dark:border-woodsmoke-600 dark:placeholder-woodsmoke-400 dark:text-swiss-coffee dark:focus:ring-swiss-coffee-500 dark:focus:border-swiss-coffee-500 focus:outline-none"
+                >
+                <button on:click={handleSetAddress} class="px-2 py-2.5 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Set&nbsp;Address</button>
+            </div>
             <table class="w-full mb-4">
                 <thead>
                 <tr class="border-b-2 border-swiss-coffee-900 text-left">
@@ -39,8 +50,8 @@
                         </td>
                         <td class="px-2 py-1 border-b border-swiss-coffee-900">
                             <input
-                                    bind:value={row.address}
-                                    class="bg-swiss-coffee-50 border border-woodsmoke-300 text-woodsmoke rounded-lg focus:ring-swiss-coffee-500 focus:border-swiss-coffee-500 block w-full px-2 py-1 dark:bg-woodsmoke-700 dark:border-woodsmoke-600 dark:placeholder-woodsmoke-400 dark:text-swiss-coffee dark:focus:ring-swiss-coffee-500 dark:focus:border-swiss-coffee-500 focus:outline-none"
+                                bind:value={row.address}
+                                class="bg-swiss-coffee-50 border border-woodsmoke-300 text-woodsmoke rounded-lg focus:ring-swiss-coffee-500 focus:border-swiss-coffee-500 block w-full px-2 py-1 dark:bg-woodsmoke-700 dark:border-woodsmoke-600 dark:placeholder-woodsmoke-400 dark:text-swiss-coffee dark:focus:ring-swiss-coffee-500 dark:focus:border-swiss-coffee-500 focus:outline-none"
                             />
                         </td>
                         <td>

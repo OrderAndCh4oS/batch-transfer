@@ -36,11 +36,11 @@
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{index + 1}</td>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.amount}</td>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.name}</td>
-    <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token_id}</td>
-    <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.artist_profile?.alias ?? trimAddress(row.token.artist_address)}</td>
+    <td class="px-2 py-1 border-b border-swiss-coffee-900 max-w-[90px]"><span class="truncate block">{row.token_id}</span></td>
+    <td class="px-2 py-1 border-b border-swiss-coffee-900 max-w-[300px]"><span class="truncate block">{row.token.artist_profile?.alias ?? trimAddress(row.token.artist_address)}</span></td>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">{trimAddress(row.fa2_address)}</td>
-    <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.mime_type}</td>
-    <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.platform}</td>
+    <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.mime_type ?? 'n/a'}</td>
+    <td class="px-2 py-1 border-b border-swiss-coffee-900">{row.token.platform ?? 'UNKNOWN'}</td>
     <td class="px-2 py-1 border-b border-swiss-coffee-900">
         {#if row.amount > 1}
             <div class="flex gap-1 w-[150px]">
