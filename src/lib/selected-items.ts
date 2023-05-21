@@ -1,7 +1,7 @@
 import {writable} from 'svelte/store';
 import type {IOwnedToken} from "../api/get-owned-tokens";
 
-interface ISelectedToken extends IOwnedToken {
+export interface ISelectedToken extends IOwnedToken {
     qty: number,
     address: string
 }

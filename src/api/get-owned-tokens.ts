@@ -38,7 +38,7 @@ export interface IOwnedToken {
         display_uri: string
         thumbnail_uri: string
         artist_address: string
-        artist_profile: {
+        artist_profile?: {
             alias: string
         }
         mime_type: string

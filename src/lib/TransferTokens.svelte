@@ -1,8 +1,12 @@
 <script>
     import {deselectTokenByIndex, selected} from "./selected-items";
+    import batchTransfer from "./batch-transfer";
+    import {user} from "../user";
 
-    const handleSend = () => {
+    const handleSend = async () => {
         console.log($selected);
+        await batchTransfer($user, $selected)
+        selected.set([])
     };
 </script>
 

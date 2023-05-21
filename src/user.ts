@@ -1,11 +1,11 @@
 import {writable} from "svelte/store";
 import {TezosToolkit} from "@taquito/taquito";
 import {BeaconWallet} from "@taquito/beacon-wallet";
-import {AccountInfo, NetworkType} from "@airgap/beacon-sdk";
+import {NetworkType} from "@airgap/beacon-sdk";
 
 export const tezosToolkit = new TezosToolkit('https://mainnet.api.tez.ie');
 
-const wallet = new BeaconWallet({
+export const wallet = new BeaconWallet({
     name: 'Order & Chaos Tools v2',
     preferredNetwork: NetworkType.MAINNET
 });
@@ -16,23 +16,17 @@ export const network = {
 };
 tezosToolkit.setWalletProvider(wallet);
 
-interface IUser {
+export interface IUser {
     address: string
-    wallet: BeaconWallet
-    account: AccountInfo
 }
 
-export const user = writable<IUser | null>(null);
+const address = await wallet.getPKH();
+export const user = writable<IUser | null>(address ? {address} : null);
 
 export const sync = async () => {
     await wallet.requestPermissions({network});
-    const account = await wallet.client.getActiveAccount();
     const address = await wallet.getPKH();
-    user.set({
-        address,
-        account,
-        wallet,
-    });
+    user.set({address});
 };
 
 export const unsync = async () => {

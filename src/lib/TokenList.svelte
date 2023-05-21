@@ -23,6 +23,7 @@
             <th class="pb-2 px-2">Qty</th>
             <th class="pb-2 px-2">Title</th>
             <th class="pb-2 px-2">Token ID</th>
+            <th class="pb-2 px-2">Artist</th>
             <th class="pb-2 px-2">Contract</th>
             <th class="pb-2 px-2">Mime Type</th>
             <th class="pb-2 px-2">Platform</th>
