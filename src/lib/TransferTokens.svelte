@@ -26,7 +26,6 @@
                     .split('\n')
                     .map(line => line.trim())
                     .filter(line => line);
-                selected.update(selected => selected.map((s, i) => ({...s, address: i < lines.length ? lines[i] : ''})))
                 addresses.set(lines)
             })
         }
@@ -43,14 +42,19 @@
         return randomizedArray;
     }
 
+    const handleSetAddresses = (addresses) => () => {
+        selected.update(selected => selected.map((s, i) => ({...s, address: i < addresses.length ? addresses[i] : ''})))
+    }
+
     const handleRandomiseAddresses = (addresses) => () => {
-        const shuffledAddresses = addresses ? shuffle(addresses) : shuffle($selected.map(s => s.address));
+        const shuffledAddresses = shuffle(addresses);
         selected.update(selected => selected.map((s, i) => ({...s, address: i < shuffledAddresses.length ? shuffledAddresses[i] : ''})))
     }
 
     const handleClearAddresses = () => {
         input.value = ''
         addresses.set(null)
+        selected.update(selected => selected.map((s, i) => ({...s, qty: 1, address: ''})))
     }
 </script>
 
@@ -73,8 +77,9 @@
                             bind:this={input}
                     />
                 </div>
-                <button title="Clear the uploaded file and any unassigned addresses" on:click={handleClearAddresses} class="px-2 py-2.5 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Clear</button>
-                <button title="If an address file has been uploaded randomise will shuffle the list and reassign the tokens, otherwise it will shuffle the existing addresses in the form" on:click={handleRandomiseAddresses($addresses)} class="px-2 py-2.5 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Randomise</button>
+                <button title="Set addresses in the order provided in the list" on:click={handleSetAddresses($addresses)} class="px-2 py-2.5 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Set</button>
+                <button title="Randomise the addresses provided before setting them" on:click={handleRandomiseAddresses($addresses)} class="px-2 py-2.5 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Random</button>
+                <button title="Reset everything" on:click={handleClearAddresses} class="px-2 py-2.5 border rounded border-woodsmoke hover:dark:border-swiss-coffee-200 hover:border-woodsmoke-100 dark:border-swiss-coffee-900">Reset</button>
             </div>
             <table class="w-full mb-4">
                 <thead>
