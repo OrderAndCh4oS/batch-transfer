@@ -20,8 +20,11 @@ export interface IUser {
     address: string
 }
 
-const address = await wallet.getPKH();
-export const user = writable<IUser | null>(address ? {address} : null);
+
+export const user = writable<IUser | null>(null);
+wallet.getPKH().then(address => {
+    user.set({address})
+})
 
 export const sync = async () => {
     await wallet.requestPermissions({network});
