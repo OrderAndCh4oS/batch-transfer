@@ -15,8 +15,8 @@
         --black: #E0D7D5;
         --white: #141418;
         --foreground-rgb: 207, 193, 190;
-        --background-start-rgb: 35, 33, 33;
-        --background-end-rgb: 29, 29, 35;
+        --background-start-rgb: 29, 29, 35;
+        --background-end-rgb: 20, 20, 24;
     }
 }
 
@@ -45,8 +45,12 @@
 }
 
 @layer base {
+    html {
+        background: #141418;
+    }
+
     html, body {
-        min-height: 100%;
+        display: block;
     }
 
     html {
@@ -54,6 +58,7 @@
     }
 
     body {
+        min-height: 100vh;
         color: rgb(var(--foreground-rgb));
         background: linear-gradient(
                 to bottom,

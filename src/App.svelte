@@ -4,14 +4,17 @@
     import Footer from "./lib/Footer.svelte";
 </script>
 
-<main class="p-8">
-    {#if $user}
-        <div class="mb-8">
-            <button on:click={unsync}>Unsync</button> {$user.address}
-        </div>
-        <Tabs/>
-    {:else}
-        <button on:click={sync}>Sync</button>
-    {/if}
-</main>
-<Footer/>
+<div class="flex flex-col min-h-[100vh]">
+    <main class="p-8">
+        {#if $user}
+            <div class="mb-8">
+                <button on:click={unsync}>Unsync</button> {$user.address}
+            </div>
+            <Tabs/>
+        {:else}
+            <button on:click={sync}>Sync</button>
+        {/if}
+    </main>
+    <Footer/>
+</div>
+
